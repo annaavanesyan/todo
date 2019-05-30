@@ -1,0 +1,17 @@
+{
+  "name": "todo-server",
+  "version": "1.0.0",
+  "description": "server for todo react app",
+  "main": "server.js",
+  "author": "annaavanesyan <anna.avanesyan1998@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "nodemon": "^1.19.1",
+    "uuidv4": "^4.0.0"
+  },
+  "scripts": {
+    "start": "nodemon ./server.js"
+  }
+}
