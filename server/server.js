@@ -3,9 +3,13 @@ const Express = require('express');
 const uuidv4 = require('uuid/v4');
 
 let items = [
-    { id: uuidv4(), item: 'something1' },
-    { id: uuidv4(), item: 'something2' }
+    { id: uuidv4(), item: 'have a walk' },
+    { id: uuidv4(), item: 'watch a movie' }
 ];
+
+// TODO: add db connection
+// const db = require('./db');
+// db.connect();
 
 const app = new Express();
 app.use((req, res, next) => {
@@ -41,7 +45,8 @@ app.post('/items', (req, res) => {
 });
 
 app.delete('/items/:id', (req, res) => {
-    const id = req.params;
+    const { id } = req.params;
+    console.log('mtnuma');
 
     items = items.filter(item => {
         if (item.id !== id) {
@@ -49,7 +54,8 @@ app.delete('/items/:id', (req, res) => {
         }
     });
 
-    res.status(202);
+    console.log('hasnuma stex');
+    res.status(200);
     res.json(items);
 });
 
