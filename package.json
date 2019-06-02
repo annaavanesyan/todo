@@ -27,5 +27,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "todo application with react and node",
+  "main": "src/App.js",
+  "author": "annaavanesyan <anna.avanesyan1998@gmail.com>",
+  "license": "MIT"
 }
