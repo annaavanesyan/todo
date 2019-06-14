@@ -46,7 +46,6 @@ app.post('/items', (req, res) => {
 
 app.delete('/items/:id', (req, res) => {
     const { id } = req.params;
-    console.log('mtnuma');
 
     items = items.filter(item => {
         if (item.id !== id) {
@@ -54,7 +53,6 @@ app.delete('/items/:id', (req, res) => {
         }
     });
 
-    console.log('hasnuma stex');
     res.status(200);
     res.json(items);
 });
@@ -63,5 +61,5 @@ const server = require('http').createServer(app);
 const port = '4567';
 
 server.listen(port, () => {
-    console.log(`app listening on port ${port}`);
+    console.log(`Server running on port ${port}`);
 });
