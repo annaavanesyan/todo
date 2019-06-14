@@ -22,3 +22,9 @@ server/node_modules
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# cache
+.sass-cache
+
+# environment configurations
+.vscode
