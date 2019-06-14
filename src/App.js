@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import Switcher from './components/Switcher';
+
 const globalURL = 'http://localhost:4567/';
 
 class App extends Component {
@@ -12,11 +14,9 @@ class App extends Component {
     };
 
     componentDidMount() {
-        console.log(',tav preventDefault');
         fetch(`${globalURL}items`)
             .then(res => res.json())
             .then(items => {
-                console.log('ay stexa');
                 return this.setState({ items, loading: false });
             });
     }
@@ -63,10 +63,10 @@ class App extends Component {
                             className="d-inline-block align-top"
                             alt="logo"
                         />
-                        Todo List
+                        Socket Client
                     </span>
                 </nav>
-
+                <Switcher/>
                 <div className="px-3 py-2">
                     <form
                         className="form-inline my-3 align-items-center"
