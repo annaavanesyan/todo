@@ -2,8 +2,20 @@
   font-family: "Roboto", sans-serif;
 }
 
-.swicther-wrapper {
-  padding: 5px;
+.switcher-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.listener {
+  width: 350px;
+}
+.listener .event {
+  display: flex;
+  justify-content: left;
+  align-items: center;
 }
 
 /*# sourceMappingURL=index.css.map */

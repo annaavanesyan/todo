@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
 import Switch from '@material-ui/core/Switch';
 
-import SwitcherModes from '../constants/SwictherModes';
-
 class Switcher extends Component {
-    state = { mode: SwitcherModes.LISTENER };
+    state = {};
+
     render() {
         return (
-            <div className="swicther-wrapper">
+            <div className="switcher-wrapper">
                 <div>Listener</div>
-                <Switch color="primary" />
+                <Switch
+                    onChange={this.props.changeMode}
+                    className="switcher"
+                    color="primary"
+                />
                 <div>Emitter</div>
             </div>
         );
