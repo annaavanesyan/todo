@@ -2,24 +2,35 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import Switcher from './components/Switcher';
+import SwitcherModes from './constants/SwitcherModes';
 
+import Switcher from './components/Switcher';
+import Listener from './components/Listener';
 const globalURL = 'http://localhost:4567/';
 
 class App extends Component {
     state = {
+        mode: SwitcherModes.LISTENER,
+        listeners: [],
+        emitters: [],
         items: [],
         loading: true,
         todoItem: ''
     };
 
-    componentDidMount() {
+    changeMode = (event, checked) => {
+        this.setState({
+            mode: checked ? SwitcherModes.EMITTER : SwitcherModes.LISTENER
+        });
+    };
+
+    componentDidMount = () => {
         fetch(`${globalURL}items`)
             .then(res => res.json())
             .then(items => {
                 return this.setState({ items, loading: false });
             });
-    }
+    };
 
     addItem = e => {
         e.preventDefault();
@@ -66,7 +77,12 @@ class App extends Component {
                         Socket Client
                     </span>
                 </nav>
-                <Switcher/>
+                <Switcher changeMode={this.changeMode} />
+                <div className="emitters-wrapper">
+                {this.state.emitters.map((item, i) => {
+                        return <tr key={i} className="emitter"></tr>;
+                    })}
+                </div>
                 <div className="px-3 py-2">
                     <form
                         className="form-inline my-3 align-items-center"
